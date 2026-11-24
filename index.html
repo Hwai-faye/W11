@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>毛小孩の家 - 寵物美容工作室</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #f7a072;
+      --primary-dark: #e07a5f;
+      --bg-cream: #fdfbf7;
+      --card-bg: #ffffff;
+      --text-main: #3d405b;
+      --text-muted: #6b705c;
+      --accent: #81b29a;
+      --accent-soft: #f4f1de;
+      --border-radius: 18px;
+      --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Zen Maru Gothic', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, #ffeedb 0%, #fae1dd 100%);
+      padding: 40px 20px 30px;
+      text-align: center;
+      border-bottom-left-radius: 36px;
+      border-bottom-right-radius: 36px;
+      box-shadow: 0 4px 20px rgba(240, 150, 110, 0.15);
+    }
+
+    .brand-title {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: var(--primary-dark);
+      color: #fff;
+      font-size: 0.85rem;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 24px 20px 60px;
+    }
+
+    /* Section 1: About Card */
+    .about-card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      padding: 30px 28px;
+      margin-top: -20px;
+      border: 1px solid rgba(247, 160, 114, 0.2);
+    }
+
+    .about-intro {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: var(--text-main);
+    }
+
+    .features-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .feature-item {
+      background-color: var(--accent-soft);
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      color: #3d405b;
+    }
+
+    .feature-item strong {
+      color: var(--primary-dark);
+    }
+
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: #fff8f0;
+      border-radius: 14px;
+      padding: 16px 20px;
+      border-left: 5px solid var(--primary-color);
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.98rem;
+    }
+
+    .contact-item .label {
+      font-weight: 700;
+      color: var(--primary-dark);
+    }
+
+    .contact-item a {
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    /* Section Headings */
+    .section-title {
+      font-size: 1.6rem;
+      color: var(--text-main);
+      margin: 48px 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      position: relative;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 24px;
+      background: var(--primary-color);
+      border-radius: 4px;
+    }
+
+    /* Section 2: Middle Gallery (Price & Photo) */
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(0,0,0,0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .card-header {
+      padding: 16px 20px;
+      background: #fffcf9;
+      border-bottom: 1px solid #f2ece6;
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-body {
+      padding: 16px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #fafafa;
+    }
+
+    .responsive-img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      object-fit: contain;
+    }
+
+    /* Section 3: Post-care Card */
+    .care-container {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .care-container img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 12px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 24px 20px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-top: 1px dashed #e2ded9;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .brand-title {
+        font-size: 1.8rem;
+      }
+      .about-card {
+        padding: 20px 16px;
+      }
+      .contact-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .showcase-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .card-body {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. 最上面：店名與店家介紹 -->
+  <header>
+    <h1 class="brand-title">🐾 毛小孩の家</h1>
+    <div><span class="badge">寵物美容工作室</span></div>
+  </header>
+
+  <div class="container">
+    <section class="about-card">
+      <p class="about-intro">
+        我們是一間開在住宅區的小型寵物美容工作室，一次只接一隻，不關籠、不趕時間。<br>
+        怕生、年紀大、第一次美容的毛孩，都可以慢慢來。
+      </p>
+
+      <div class="features-list">
+        <div class="feature-item">
+          <strong>🐶 服務對象</strong><br>
+          小型犬、中大型犬、貓
+        </div>
+        <div class="feature-item">
+          <strong>✨ 服務特色</strong><br>
+          一對一美容、過程拍照回報給飼主
+        </div>
+      </div>
+
+      <div class="contact-bar">
+        <div class="contact-item">
+          <span class="label">⏰ 營業時間：</span>
+          <span>週二至週日 10:00–19:00（週一公休）</span>
+        </div>
+        <div class="contact-item">
+          <span class="label">📞 預約電話：</span>
+          <a href="tel:0900000000">0900-000-000</a>
+        </div>
+        <div class="contact-item">
+          <span class="label">💬 LINE 預約：</span>
+          <span>@maoxiaohai</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. 中間：價目表和作品照 -->
+    <h2 class="section-title">價目表與美容作品</h2>
+    <div class="showcase-grid">
+      <div class="card">
+        <div class="card-header">📋 美容服務價目表</div>
+        <div class="card-body">
+          <img src="price.png" alt="毛小孩の家 服務價目表" class="responsive-img" loading="lazy">
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">📷 美容作品集</div>
+        <div class="card-body">
+          <img src="photo.png" alt="毛小孩の家 美容作品照" class="responsive-img" loading="lazy">
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. 下面：衛教卡（美容後照護） -->
+    <h2 class="section-title">美容後照護</h2>
+    <div class="care-container">
+      <img src="care.png" alt="毛小孩の家 美容後照護指南" class="responsive-img" loading="lazy">
+    </div>
+
+    <footer>
+      <p>© 毛小孩の家 寵物美容工作室 ｜ 讓每一位毛孩都備受呵護</p>
+    </footer>
+  </div>
+
+</body>
+</html>
